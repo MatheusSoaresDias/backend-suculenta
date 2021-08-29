@@ -58,6 +58,12 @@ public class SuculentaService {
 	
 	public void deletarSuculenta(Long id) {
 		Suculenta suculenta = sr.getById(id);
+		String idString = Long.toString(id);
+		for(int i = 1; i < 4; i++) {
+			File imgsDelete = new File(uploadDirectory, idString+"-"+i+".png");
+			imgsDelete.delete();
+		}
+		
 		sr.delete(suculenta);
 	}
 }
